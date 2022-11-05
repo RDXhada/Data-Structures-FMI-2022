@@ -71,7 +71,6 @@ public:
     T getLast();
     bool palindrom();
     bool issorted ();
-    //TODO
     void removeDuplicates();
     //search
     T search(const T& X);
