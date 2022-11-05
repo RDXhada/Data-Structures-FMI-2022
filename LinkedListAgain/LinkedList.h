@@ -63,7 +63,7 @@ public:
     //TODO
     void removeElement(const size_t& position);
     
-    //algorythims
+    //algorithms
     T listSum();
     void sort();
     void reverse();
@@ -72,12 +72,11 @@ public:
     bool palindrom();
     bool issorted ();
     void removeDuplicates();
-    //search
     T search(const T& X);
     //operator
     T operator[](const size_t& position) const;
     
-    //print list
+
     void print();
     
     //Iterator
