@@ -70,7 +70,8 @@ public:
     T getFirst();
     T getLast();
     bool palindrom();
-    bool issorted ();
+    bool issortedAscending();
+    bool issortedDescending();
     void removeDuplicates();
     T search(const T& X);
     //operator
