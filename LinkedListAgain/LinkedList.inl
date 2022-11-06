@@ -372,23 +372,39 @@ inline bool LinkedList<T>::palindrom()
     return true;
 }
 
-
 //Да се напише фунцкия bool issorted (...), която проверява дали елементите на даден контейнер са подредени в нарастващ или в намаляващ ред.
 template <typename T>
-inline bool LinkedList<T>::issorted()
+inline bool LinkedList<T>::issortedAscending()
 {
     if (head == nullptr) {
         return true;
     }
     
     for (Node *temp = head; temp->next != nullptr; temp = temp->next) {
-        if (temp->value >= temp->next->value && temp->value <= temp->next->value)
+        if (temp->value >= temp->next->value)
         {
             return false;
         }
     }
     return true;
 }
+
+template <typename T>
+inline bool LinkedList<T>::issortedDescending()
+{
+    if (head == nullptr) {
+        return true;
+    }
+    
+    for (Node *temp = head; temp->next != nullptr; temp = temp->next) {
+        if (temp->value <= temp->next->value)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 
 //Да се напише функция bool duplicates (...), която проверява дали в
