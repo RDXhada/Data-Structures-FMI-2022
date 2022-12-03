@@ -103,40 +103,46 @@ inline typename BinarySearchTree<T>::Node *BinarySearchTree<T>::minimum(Node *te
 template <typename T>
 inline typename BinarySearchTree<T>::Node *BinarySearchTree<T>::deleteNode(Node *temp, T element)
 {
-        // base case
-        if (temp == NULL)
-            return temp;
-     
-    
-        if (element < temp->value)
-            temp->left = deleteNode(temp->left, element);
-     
-    
-        else if (element > temp->value)
-            temp->right = deleteNode(temp->right, element);
-     
-        else {
-            if (temp->left == NULL and temp->right == NULL)
-                return nullptr;
-     
-            else if (temp->left == NULL) {
-                Node *current = temp->right;
-                free(temp);
-                return current;
-            }
-            else if (temp->right == NULL) {
-                Node *current = temp->left;
-                free(temp);
-                return current;
-            }
-     
-            Node *current = minimum(temp->right);
-   
-            temp->value = current->value;
-     
-            temp->right = deleteNode(temp->right, current->value);
-        }
+    if (temp == nullptr)
+    {
         return temp;
+    }
+    
+    if (element < temp->value){
+        temp->left = deleteNode(temp->left, element);
+    }
+    
+    else if (element > temp->value){
+        temp->right = deleteNode(temp->right, element);
+    }
+    else
+    {
+        if (temp->left == nullptr && temp->right == nullptr)
+        {
+            return nullptr;
+        }
+        else if (temp->left == nullptr)
+        {
+            Node *current = temp->right;
+            delete temp;
+            temp = nullptr;
+            return current;
+        }
+        else if (temp->right == nullptr)
+        {
+            Node *current = temp->left;
+            delete temp;
+            temp = nullptr;
+            return current;
+        }
+        
+        Node *current = minimum(temp->right);
+        
+        temp->value = current->value;
+        
+        temp->right = deleteNode(temp->right, current->value);
+    }
+    return temp;
 }
 
 
