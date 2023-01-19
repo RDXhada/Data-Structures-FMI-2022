@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-//WEEK 11 TREE EXERCISES | SOME LEETCODE FOR EXAM PREP | TODO BFS
+//WEEK 11 TREE EXERCISES | SOME LEETCODE FOR EXAM PREP
 template <typename T>
 struct Node
 {
