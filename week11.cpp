@@ -411,6 +411,37 @@ std::string findTrace(Node<T> *temp,const T& x)
     return "_";
 }
 
+template <typename T>
+std::vector<T> BFS(Node<T> *root)
+{
+std::vector<T> vec;
+std::queue<Node<T>*> que;
+que.push(root);
+int count = que.size();
+while(!que.empty())
+{
+    //while the size is more than the other as bool, the push the current->data
+    bool flag = 0;
+    int sum = 0.0;
+    int nodes = 0;
+        Node<T> *current = que.front();
+        que.pop();
+        sum = current->value;
+        nodes++;
+    if(current->left && current->right)
+        if(current->right != nullptr)
+            que.push(current->right);
+        if(current->left != nullptr)
+            que.push(current->left);
+    
+    int value = sum;
+    vec.push_back(value);
+    count--;
+}
+
+return vec;
+}
+
 int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
     Node<int> *root = new Node(1);
